@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bug" class="com.kma.KekLol">
+        <constructor-arg value="15" />
+    </bean>
+    <bean id="Best" class="com.kma.Besties">
+        <property name="picture" value="Troll Face" />
+        <property name="memes" ref="kek"/>
+    </bean>
+    <bean id = "wierd-memes" class="com.kma.KmaWierdMemes">
+        <property name="memes">
+            <list>
+                <ref bean="kek"/>
+                <ref bean="lol"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id = "cool-memes" class="com.kma.KmaMemes">
+        <property name="memes">
+            <map>
+                <entry key="kek" value-ref="kek"/>
+                <entry key="lol" value-ref="lol"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id = "kek" class="com.kma.Kek"/>
+    <bean id = "lol" class="com.kma.Lol"/>
+
+</beans>
